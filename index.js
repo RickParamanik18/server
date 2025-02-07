@@ -42,82 +42,82 @@ io.on('connection',(socket)=>{
 
 
 
-// app.get('/login',async (req,res)=>{
-//     const {email,password}=req.body;
-//     let result  = await User.findOne({email});
+app.get('/login',async (req,res)=>{
+    const {email,password}=req.body;
+    let result  = await User.findOne({email});
     
-//     if(result && result.password === password){
-//         res.send({
-//             status:200,
-//             msg:"Success!!",
-//             data:result
-//         })
-//     }else {
-//         res.send({
-//             status:400,
-//             msg:"Invalid credentials!!",
-//             data:null
-//         })
-//     }
+    if(result && result.password === password){
+        res.send({
+            status:200,
+            msg:"Success!!",
+            data:result
+        })
+    }else {
+        res.send({
+            status:400,
+            msg:"Invalid credentials!!",
+            data:null
+        })
+    }
     
     
-// })
-// app.post('/signin',async (req,res)=>{
-//     const {name,email,password}=req.body;
-//     let result  = await User.findOne({email});
-//     if(result){
-//         res.send({
-//             status:400,
-//             msg:"User already registered!!",
-//             data:null
-//         })
-//     }else{
+})
+app.post('/signin',async (req,res)=>{
+    const {name,email,password}=req.body;
+    let result  = await User.findOne({email});
+    if(result){
+        res.send({
+            status:400,
+            msg:"User already registered!!",
+            data:null
+        })
+    }else{
 
-//         const userObj = new User({
-//             name,
-//             email,
-//             password
-//         })
+        const userObj = new User({
+            name,
+            email,
+            password
+        })
     
-//         result  = await userObj.save();
+        result  = await userObj.save();
     
-//         if(result){
-//             res.send({
-//                 status:200,
-//                 msg:"Success!!",
-//                 data:result
-//             })
-//         }else{
-//             res.send({
-//                 status:400,
-//                 msg:"Failed!!",
-//                 data:null
-//             })
-//         }
-//     }
+        if(result){
+            res.send({
+                status:200,
+                msg:"Success!!",
+                data:result
+            })
+        }else{
+            res.send({
+                status:400,
+                msg:"Failed!!",
+                data:null
+            })
+        }
+    }
     
-// })
-// app.post('/update-posture',async (req,res)=>{
-//     const {machineId,posture}=req.body;
-//     // const email = machineToUserEmail.get(machineId);
-//     const email="rick@gmail.com";
-//     let result  = await User.findOne({email});
+})
+app.post('/update-posture',async (req,res)=>{
+    const {machineId,posture}=req.body;
+    // const email = machineToUserEmail.get(machineId);
+    const email="rick@gmail.com";
+    let result  = await User.findOne({email});
     
-//     if(result){
-//         await User.updateOne({email},{
-//             $set:{posture:[...posture,...result.posture]}
-//         })
-//         res.send({
-//             status:200,
-//             msg:"Success!!",
-//         })
-//     }else {
-//         res.send({
-//             status:400,
-//             msg:"Failed!!"
-//         })
-//     }
-// })
+    if(result){
+        await User.updateOne({email},{
+            $set:{posture:[...posture,...result.posture]}
+        })
+        res.send({
+            status:200,
+            msg:"Success!!",
+        })
+    }else {
+        res.send({
+            status:400,
+            msg:"Failed!!"
+        })
+    }
+})
 
 
 
