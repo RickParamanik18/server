@@ -1,0 +1,28 @@
+{
+  "name": "po_go_server",
+  "version": "1.0.0",
+  "description": "this is an express server to serve po_go_frontend ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rupsha-Das/Po-Go.git"
+  },
+  "author": "Rick Paramanik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rupsha-Das/Po-Go/issues"
+  },
+  "homepage": "https://github.com/Rupsha-Das/Po-Go#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.10.0",
+    "nodemon": "^3.1.9",
+    "socket.io": "^4.8.1"
+  }
+}
